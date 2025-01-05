@@ -1,0 +1,47 @@
+<div class="">
+    <div class="">
+        <!-- <h3 class="text-center"> User List</h3> -->
+        <!-- <button class="text-center" style="margin-left: auto; height: auto; background-color: cyan; color: black; border: 0cap;" (click)="getAddUser()">Add User</button> -->
+        <!-- <label>
+            <input [(ngModel)]="selected" type="checkbox">Add User
+        </label> -->
+        <ng-template [ngIf]="!selected">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <th>Sr. No</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Emai Id</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users; index as i">
+                            <td>{{i+1}}</td>
+                            <td>{{user.firstname}}</td>
+                            <td>{{user.lastname}}</td>
+                            <td>{{user.email}}</td>
+                            <td><button class="btn btn-primary" (click)="updateUser(user.id)">Update</button>
+                                <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </ng-template>
+        <ng-template [ngIf]="selected">
+            <div class="form-group col-md-12">
+                <span>First Name</span>
+                <input class="" type="text" [maxLength]="10">
+            <!-- </div>
+            <div class="form-group col-md-4"> -->
+                <span>Last Name</span>
+                <input class="" type="text" [maxLength]="10">
+            <!-- </div>
+            <div class="form-group col-md-4"> -->
+                <span>Email Id</span>
+                <input class="" type="text">
+            </div>
+        </ng-template>
+    </div>
+</div>

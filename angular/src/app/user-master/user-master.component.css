@@ -1,0 +1,23 @@
+.form-group {
+    align-content: center;
+    width: 500px;
+    text-align: center;
+}
+
+.card {
+    width: 800px;
+    height: 300px;
+}
+button.btn.btn-success {
+    width: 100px;
+    height: 40px;
+    animation: revert;
+    animation-duration: 2sec;
+    animation-timing-function: 2;
+    animation-delay: 2;
+    animation-iteration-count: 12;
+    animation-direction: 45;
+    animation-fill-mode: 4;
+    animation-play-state: z;
+    animation-name: om;
+}

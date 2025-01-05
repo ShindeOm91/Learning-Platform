@@ -1,0 +1,136 @@
+<!-- exam-master.component.html -->
+<!-- <div class="container">
+    <h2>Create Exam Question</h2>
+    <form [formGroup]="examForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="question">Question:</label>
+        <textarea
+          id="question"
+          class="form-control"
+          formControlName="question"
+          rows="3"
+          placeholder="Enter the question"
+        ></textarea>
+        <div *ngIf="examForm.get('question')?.invalid && examForm.get('question')?.touched" class="text-danger">
+          Question is required.
+        </div>
+      </div>
+  
+      <div formGroupName="options">
+        <div class="form-group" *ngFor="let option of ['option1', 'option2', 'option3', 'option4']; let i = index">
+          <label [for]="'option' + (i + 1)">Option {{ i + 1 }}:</label>
+          <input
+            [id]="'option' + (i + 1)"
+            class="form-control"
+            [formControlName]="option"
+            type="text"
+            [placeholder]="'Enter option ' + (i + 1)"
+          />
+          <div *ngIf="examForm.get(['options', option])?.invalid && examForm.get(['options', option])?.touched" class="text-danger">
+            Option {{ i + 1 }} is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Correct Answer:</label>
+        <div *ngFor="let option of ['1', '2', '3', '4']; let i = index">
+          <input
+            type="radio"
+            [id]="'correctOption' + (i + 1)"
+            formControlName="correctAnswer"
+            [value]="option"
+          />
+          <label [for]="'correctOption' + (i + 1)">Option {{ i + 1 }}</label>
+        </div>
+        <div *ngIf="examForm.get('correctAnswer')?.invalid && examForm.get('correctAnswer')?.touched" class="text-danger">
+          Please select the correct answer.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="examForm.invalid">Submit</button>
+    </form>
+  </div> -->
+  
+  <div class="container py-5">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white text-center">
+        <h2>Create Exam Question</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="examForm" (ngSubmit)="onSubmit()">
+          <!-- Question Section -->
+          <div class="form-group mb-4">
+            <label for="question" class="form-label fw-bold">Question:</label>
+            <textarea
+              id="question"
+              class="form-control"
+              formControlName="question"
+              rows="3"
+              placeholder="Enter the question"
+            ></textarea>
+            <div
+              *ngIf="examForm.get('question')?.invalid && examForm.get('question')?.touched"
+              class="text-danger mt-1"
+            >
+              Question is required.
+            </div>
+          </div>
+  
+          <!-- Options Section -->
+          <div formGroupName="options" class="mb-4">
+            <div
+              class="form-group mb-3"
+              *ngFor="let option of ['option1', 'option2', 'option3', 'option4']; let i = index"
+            >
+              <label [for]="'option' + (i + 1)" class="form-label fw-bold">
+                Option {{ i + 1 }}:
+              </label>
+              <input
+                [id]="'option' + (i + 1)"
+                class="form-control"
+                [formControlName]="option"
+                type="text"
+                [placeholder]="'Enter option ' + (i + 1)"
+              />
+              <div
+                *ngIf="examForm.get(['options', option])?.invalid && examForm.get(['options', option])?.touched"
+                class="text-danger mt-1"
+              >
+                Option {{ i + 1 }} is required.
+              </div>
+            </div>
+          </div>
+  
+          <!-- Correct Answer Section -->
+          <div class="form-group mb-4">
+            <label class="form-label fw-bold">Correct Answer:</label>
+            <div class="form-check" *ngFor="let option of ['1', '2', '3', '4']; let i = index">
+              <input
+                class="form-check-input"
+                type="radio"
+                [id]="'correctOption' + (i + 1)"
+                formControlName="correctAnswer"
+                [value]="option"
+              />
+              <label [for]="'correctOption' + (i + 1)" class="form-check-label">
+                Option {{ i + 1 }}
+              </label>
+            </div>
+            <div
+              *ngIf="examForm.get('correctAnswer')?.invalid && examForm.get('correctAnswer')?.touched"
+              class="text-danger mt-1"
+            >
+              Please select the correct answer.
+            </div>
+          </div>
+  
+          <!-- Submit Button -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary px-4" [disabled]="examForm.invalid">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

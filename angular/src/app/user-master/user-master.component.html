@@ -1,0 +1,98 @@
+<!-- <!DOCTYPE html>
+<html lang="en"> -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <style>
+        /* body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        } */
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            /* width: 400px; */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+			text-align: left;
+        }
+
+        .form-group input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .mydiv {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input [(ngModel)]="users.firstname" type="text" class="form-control" name="first-name" id="first-name"
+                    placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input [(ngModel)]="users.lastname" type="text" class="form-control" name="last-name" id="last-name"
+                    placeholder="Last Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input [(ngModel)]="users.email" type="text" class="form-control" name="email" id="email" placeholder="Email">
+            </div>
+            <div class="mydiv">
+                <button (click)="saveUser()" type="button" class="btn btn-success">Save</button>
+                <button (click)="cancelAdd()" type="button" class="btn btn-danger">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+<!-- </html> -->

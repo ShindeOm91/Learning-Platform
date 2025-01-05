@@ -1,0 +1,122 @@
+<app-sidebar *ngIf="afterLogin"></app-sidebar>
+<div [ngClass]="abcd">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" (click)="todopage(6)">ANGULAR 16</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="afterLogin">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="mainPage">
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="todopage(2)">TODO LIST</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#" (click)="todopage(3)">ADD USER</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="todopage(4)">Employee List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="todopage(7)">Document</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="masterPage">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#" (click)="todopage(1)">User</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#" (click)="todopage(3)">ADD USER</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="todopage(9)">Role</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="todopage(10)">Location</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="todopage(11)">Exam Master</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <i class="pi pi-spin pi-clock" style="font-size: 15px; color: blue;"></i> {{time | date: 'EEEE, MMM d, y, h:mm:ss a'}}
+        </li>
+      </ul>
+      <!-- <span class="pi pi-user" style="font-size: 20px; color: black;"></span>
+      <span style="color: black;">&nbsp; {{userfName}} {{userlName}}</span>
+      <button popovertarget="Mypopup">&nbsp; {{userfName}} {{userlName}}</button>
+      <div id="Mypopup" popover>
+        <ul>
+          <li>Profile</li>
+          <li>Logout</li>
+        </ul>
+      </div> -->
+      <div class="dropdown-container">
+        <button class="dropdown-btn" popovertarget="Mypopup">
+          <span class="pi pi-user user-icon"></span>
+          &nbsp; {{userfName}} {{userlName}}
+        </button>
+        <div id="Mypopup" class="dropdown-content">
+          <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>      
+      
+     <!--  <i class="pi pi-verified" style="font-size: 20px; color: blue;"></i> -->
+      <!-- <button class="btn btn-outline-danger" type="submit" (click)="todopage(0)"> Logout</button> -->
+      <!-- <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> -->
+    </div>
+  </div>
+</nav>
+<div class="container abcdLogo" *ngIf="home"><!-- center pi-spin pi pi-th-large -->
+  <!-- <h1 class="text-center mb-3"><i class="center pi pi-shield" style="font-size: 200px; color: rgb(248, 219, 34);"></i></h1> -->
+  <h1 class="text-center mb-3 logo"><i class="center  pi pi-slack" style="font-size: 150px; color: rgb(248, 219, 34);"></i></h1>
+  <!-- <h2 class="text-center mb-3" style="color: brown;">OMKAR SHINDE</h2> -->
+  <app-registration></app-registration>
+</div>
+<div class="container" *ngIf="userselect">
+  <h1 class="text-center mb-3">USER LIST</h1>
+  <button class="btn info" (click)="todopage(3)" style="text-align: right;">ADD USER</button>
+  <app-user></app-user>
+</div>
+<div class="container" *ngIf="select">
+  <h1 class="text-center mb-3">TODO LIST</h1>
+  <app-todos></app-todos>
+</div>
+<div class="container" *ngIf="addUser">
+  <h1 class="text-center mb-3"></h1>
+  <app-user-master></app-user-master>
+</div>
+<div class="container" *ngIf="addRole">
+  <h1 class="text-center mb-3"></h1>
+  <app-role-master></app-role-master>
+</div>
+<div class="container" *ngIf="addLocation">
+  <h1 class="text-center mb-3"></h1>
+  <app-location-master></app-location-master>
+</div>
+<div class="container" *ngIf="addQuetion">
+  <h1 class="text-center mb-3"></h1>
+  <app-exam-master></app-exam-master>
+</div>
+<div class="container" *ngIf="empList">
+  <h1 class="text-center mb-3">Employee List</h1>
+  <app-employee-list></app-employee-list>
+</div>
+<div class="container" *ngIf="dashboard">
+  <app-dashboard [userId]="userId"></app-dashboard>
+</div>
+<div class="container" *ngIf="document">
+  <app-document-master [userId]="userId"></app-document-master>
+  <app-document-list [userId]="userId"></app-document-list>
+</div>
+<div class="container">
+  <app-footer *ngIf="afterLogin"></app-footer>
+</div>
+</div>

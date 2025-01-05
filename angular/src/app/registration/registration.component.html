@@ -1,0 +1,122 @@
+<div id = "boxes">
+    
+    <div id = "leftbox" class="animate">
+        <img class="thumb" data-pin-no-hover="true" fetchpriority="high" 
+        src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg" 
+        srcset="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=360&amp;t=st=1698684719~exp=1698685319~hmac=b4470c339c7ee6da61a0c8cdba1f0bc6d6fb66fde764276d2574f8f76c2291b6 360w, https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=740&amp;t=st=1698684719~exp=1698685319~hmac=b4470c339c7ee6da61a0c8cdba1f0bc6d6fb66fde764276d2574f8f76c2291b6 740w, https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=826&amp;t=st=1698684719~exp=1698685319~hmac=b4470c339c7ee6da61a0c8cdba1f0bc6d6fb66fde764276d2574f8f76c2291b6 826w, https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=900&amp;t=st=1698684719~exp=1698685319~hmac=b4470c339c7ee6da61a0c8cdba1f0bc6d6fb66fde764276d2574f8f76c2291b6 900w, https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=996&amp;t=st=1698684719~exp=1698685319~hmac=b4470c339c7ee6da61a0c8cdba1f0bc6d6fb66fde764276d2574f8f76c2291b6 996w, https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=1060&amp;t=st=1698684719~exp=1698685319~hmac=b4470c339c7ee6da61a0c8cdba1f0bc6d6fb66fde764276d2574f8f76c2291b6 1060w, https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=1380&amp;t=st=1698684719~exp=1698685319~hmac=b4470c339c7ee6da61a0c8cdba1f0bc6d6fb66fde764276d2574f8f76c2291b6 1380w, https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=1480&amp;t=st=1698684719~exp=1698685319~hmac=b4470c339c7ee6da61a0c8cdba1f0bc6d6fb66fde764276d2574f8f76c2291b6 1480w, https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=1800&amp;t=st=1698684719~exp=1698685319~hmac=b4470c339c7ee6da61a0c8cdba1f0bc6d6fb66fde764276d2574f8f76c2291b6 1800w, https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=2000&amp;t=st=1698684719~exp=1698685319~hmac=b4470c339c7ee6da61a0c8cdba1f0bc6d6fb66fde764276d2574f8f76c2291b6 2000w"
+        sizes="(max-width: 479px) 100vw, (min-aspect-ratio: 2000/2000) calc((100vh - 184px) * 1.000), (max-width: 1095px) calc(100vw - 40px), calc(100vw - 400px)"
+        style="max-width: calc((100vh - 184px) * 1.000)"
+        width="400" height="400" alt="Mobile login concept illustration" 
+        onerror="this.onerror=null;ga('send', 'event', 'broken_image', 'detail', '114360_4957136');">
+    </div> 
+    
+    <div id = "middlebox" class="animate">
+        <div class="text-center mb-3" *ngIf="!registrationPage && !loginPage">
+            <button (click)="loginpopup(1)" style="width: 250px;">Login</button><br>
+            <button (click)="registrationPopup(1)" style="width: 250px;">New Registration</button>
+        </div>
+        <div *ngIf="registrationPage">
+          <form class="modal-content animate" style="background-color:#f1f1f1">
+            <div class="imgcontainer">
+              <h3>Registration Form</h3>
+              <span style="display: block;" (click)="registrationPopup(2)" class="close">&times;</span>
+            </div>
+            <div class="container animate">
+              <label for="fname" class="animate"><b>First Name</b></label>
+              <input class="animate" type="text" placeholder="Enter First Name" [(ngModel)]="user.fname" name="fname" required>
+
+              <label for="lname" class="animate"><b>Last Name</b></label>
+              <input class="animate" type="text" placeholder="Enter Last Name" [(ngModel)]="user.lname" name="lname" required>
+
+              <label for="emailId" class="animate"><b>Email Id</b></label>
+              <input class="animate" type="text" placeholder="Enter Email Address" [(ngModel)]="user.emailId" name="emailId" required>
+
+              <label for="uname" class="animate"><b>Username</b></label>
+              <input class="animate" type="text" placeholder="Enter Email Address" [(ngModel)]="user.uname" name="uname" required>
+        
+              <label for="psw" class="animate"><b>Password</b></label>
+              <input class="animate" [type]="hide ? 'password' : 'text'" placeholder="Enter Password" [(ngModel)]="user.psw" name="psw" required>
+              <label>
+                <input class="animate" type="checkbox" name="remember" (click)="hideShow()"> Hide/Show
+              </label>
+              <button (click)="save()" type="submit" class="animate">Submit</button>
+              <!-- <label>
+                <input class="animate" type="checkbox" checked="checked" name="remember"> Remember me
+              </label> -->
+            </div>
+            <div class="container animate" style="background-color:#f1f1f1">
+              <button type="button" (click)="registrationPopup(2)" class="cancelbtn animate">Cancel</button>
+              <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+            </div>
+          </form>
+        </div>
+
+        <div *ngIf="loginPage">
+          <form class="modal-content animate" style="background-color:#f1f1f1">
+            <div class="imgcontainer">
+              <h3>Login Form</h3>
+              <span (click)="loginpopup(2)" class="close" title="Close Modal">&times;</span>
+              <!-- <img src="login.png" alt="Avatar" class="avatar"> -->
+            </div>
+            <div class="container">
+
+              <label for="luname"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="luname" [(ngModel)]="luname" required>
+        
+              <label for="lpsw"><b>Password</b></label>
+              <input [type]="hide ? 'password' : 'text'" placeholder="Enter Password" name="lpsw" [(ngModel)]="lpsw" required>
+              <!-- <span class="card flex justify-content-center">
+                <p-password name="lpsw" [(ngModel)]="lpsw" [toggleMask]="true"></p-password>
+            </span> -->
+              <label>
+                <input class="animate" type="checkbox" name="remember" (click)="hideShow()"> Hide/Show
+              </label>
+              <button (click)="login()" type="submit">Login</button>
+              <label>
+                <!-- <input type="checkbox" checked="checked" name="remember"> Remember me -->
+                <span class="insta"> <a href="https://www.instagram.com/"><i class="center pi pi-instagram" style="font-size: 25px; color: rgb(244, 37, 157);"></i></a></span>
+                <span class="insta-g"> <a href="https://github.com/signup"> <i class="center pi pi-github" style="font-size: 25px; color: rgb(7, 7, 8);"></i></a></span>
+                <span class="insta-g"> <a href="https://www.whatsapp.com/"><i class="center pi pi-whatsapp" style="font-size: 25px; color: rgb(25, 252, 25);"></i></a></span>
+                <span class="insta-g"> <a href="https://www.facebook.com/login/"><i class="center pi pi-facebook" style="font-size: 25px; color: rgb(25, 70, 252);"></i></a></span>
+              </label>
+
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+              <button type="button" (click)="loginpopup(2)" class="cancelbtn">Cancel</button>
+              <span class="psw">Forgot <a href="#">password?</a></span>
+              <!-- <button (click)="sendMail()">Forgot Password ?</button> -->
+            </div>
+          </form>
+        </div>
+    </div>
+    <div id = "rightbox" class="animate">
+        <img class="thumb" data-pin-no-hover="true" fetchpriority="high" 
+        src="https://img.freepik.com/free-vector/upload-concept-illustration_114360-7025.jpg" 
+        srcset="https://img.freepik.com/free-vector/upload-concept-illustration_114360-7025.jpg?w=360&amp;t=st=1698685677~exp=1698686277~hmac=5983dc2a4b577d93ee04c703723e4786e7006390c4f95242588098fd9e87249f 360w, https://img.freepik.com/free-vector/upload-concept-illustration_114360-7025.jpg?w=740&amp;t=st=1698685677~exp=1698686277~hmac=5983dc2a4b577d93ee04c703723e4786e7006390c4f95242588098fd9e87249f 740w, https://img.freepik.com/free-vector/upload-concept-illustration_114360-7025.jpg?w=826&amp;t=st=1698685677~exp=1698686277~hmac=5983dc2a4b577d93ee04c703723e4786e7006390c4f95242588098fd9e87249f 826w, https://img.freepik.com/free-vector/upload-concept-illustration_114360-7025.jpg?w=900&amp;t=st=1698685677~exp=1698686277~hmac=5983dc2a4b577d93ee04c703723e4786e7006390c4f95242588098fd9e87249f 900w, https://img.freepik.com/free-vector/upload-concept-illustration_114360-7025.jpg?w=996&amp;t=st=1698685677~exp=1698686277~hmac=5983dc2a4b577d93ee04c703723e4786e7006390c4f95242588098fd9e87249f 996w, https://img.freepik.com/free-vector/upload-concept-illustration_114360-7025.jpg?w=1060&amp;t=st=1698685677~exp=1698686277~hmac=5983dc2a4b577d93ee04c703723e4786e7006390c4f95242588098fd9e87249f 1060w, https://img.freepik.com/free-vector/upload-concept-illustration_114360-7025.jpg?w=1380&amp;t=st=1698685677~exp=1698686277~hmac=5983dc2a4b577d93ee04c703723e4786e7006390c4f95242588098fd9e87249f 1380w, https://img.freepik.com/free-vector/upload-concept-illustration_114360-7025.jpg?w=1480&amp;t=st=1698685677~exp=1698686277~hmac=5983dc2a4b577d93ee04c703723e4786e7006390c4f95242588098fd9e87249f 1480w, https://img.freepik.com/free-vector/upload-concept-illustration_114360-7025.jpg?w=1800&amp;t=st=1698685677~exp=1698686277~hmac=5983dc2a4b577d93ee04c703723e4786e7006390c4f95242588098fd9e87249f 1800w, https://img.freepik.com/free-vector/upload-concept-illustration_114360-7025.jpg?w=2000&amp;t=st=1698685677~exp=1698686277~hmac=5983dc2a4b577d93ee04c703723e4786e7006390c4f95242588098fd9e87249f 2000w"
+        sizes="(max-width: 479px) 100vw, (min-aspect-ratio: 626/626) calc((100vh - 184px) * 1.000), (max-width: 1095px) calc(100vw - 40px), calc(100vw - 400px)" 
+        style="max-width: calc((100vh - 184px) * 1.000)" 
+        width="400" height="400" alt="Upload concept illustration" 
+        onerror="this.onerror=null;ga('send', 'event', 'broken_image', 'detail', '114360_17196748');">
+    </div>
+    <!-- <div mdbDropdown class="dropdown">
+      <button
+        class="btn btn-primary dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        aria-expanded="false"
+        mdbDropdownToggle
+      >
+        Dropdown button
+      </button>
+      <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div> -->
+   <!--  <ul class="dropdown-menu">
+      <li><a >Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul> -->
+</div>

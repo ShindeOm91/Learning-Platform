@@ -1,0 +1,16 @@
+/* exam-master.component.css */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .text-danger {
+    color: red;
+    font-size: 0.9em;
+  }
+  

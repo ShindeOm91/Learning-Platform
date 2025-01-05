@@ -1,0 +1,88 @@
+<!-- <div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title">Roles</h4>
+            <table class="table table-hover table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Role Name</th>
+                        <th style="text-align: center;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users; index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{user.role}}</td>
+                        <td class="text-center">
+                            <button class="btn btn-primary btn-sm mr-2">Update</button>
+                            <button class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> -->
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4 class="card-title">Role Master</h4>
+  
+        <!-- Form to add a new role -->
+        <form (ngSubmit)="addRole()">
+          <div class="form-group">
+            <label for="roleName">Role Name</label>
+            <input
+              type="text"
+              id="roleName"
+              class="form-control"
+              [(ngModel)]="newRole.role_name"
+              name="roleName"
+              required
+            />
+          </div>
+  
+          <div class="form-group">
+            <label for="roleAlias">Role Alias</label>
+            <input
+              type="text"
+              id="roleAlias"
+              class="form-control"
+              [(ngModel)]="newRole.role_alias"
+              name="roleAlias"
+              required
+            />
+          </div>
+  
+          <button *ngIf="!newRole.id" type="submit" class="btn btn-success mt-3">Add Role</button>
+          <button *ngIf="newRole.id" type="submit" class="btn btn-success mt-3">Update Role</button>
+        </form>
+  
+        <!-- Table displaying added roles -->
+        <table class="table table-hover table-bordered mt-4">
+          <thead class="thead-dark">
+            <tr>
+              <th>#</th>
+              <th>Role Name</th>
+              <th>Role Alias</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let role of roles; index as i">
+              <td>{{ i + 1 }}</td>
+              <td>{{ role.role_name }}</td>
+              <td>{{ role.role_alias }}</td>
+              <td class="text-center">
+                <button class="btn btn-warning btn-sm mr-2" (click)="editRole(role.id)">Edit</button>
+                <button class="btn btn-danger btn-sm" (click)="removeRole(role.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

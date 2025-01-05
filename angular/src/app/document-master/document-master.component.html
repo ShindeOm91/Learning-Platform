@@ -1,0 +1,12 @@
+<form class="modal-content animate" style="background-color:#f1f1f1">
+    
+    <div class="container">
+        <div class="mb-3">
+            <label for="formfile" class="form-label">Select File</label>
+            <input type="file" class="form-control" id="formfile" (change)="onChangeFileField($event)">
+        </div>
+      <span *ngIf="flag"><button (click)="uploadFile()" type="submit">Upload</button></span>
+    </div>
+  </form>
+  
+  <ngx-extended-pdf-viewer [src]="pdfSrc" [useBrowserLocale]="true"></ngx-extended-pdf-viewer>

@@ -1,0 +1,20 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Sr. No</th>
+            <th>File Name</th>
+            <th>Path</th>
+            <th>Created Date</th>
+            <th>Content Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let doc of documents; index as i">
+            <td>{{i+1}}</td>
+            <td>{{doc.fileName}}</td>
+            <td>{{doc.path}}</td>
+            <td>{{doc.createdDate | date:'medium'}}</td>
+            <td>{{doc.contentType}}</td>
+        </tr>
+    </tbody>
+</table>
