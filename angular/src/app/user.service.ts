@@ -99,6 +99,10 @@ export class UserService {
     return this.http.post(`${this.baseUrl}exam/addExamQuestion`, data);
   }
 
+  getQuestionList(): Observable<any> {
+    return this.http.get<any[]>(`${this.baseUrl}exam/getQuestionList`);
+  }
+
 getTreeNodesData() {
   return [
       {

@@ -9,8 +9,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./exam-master.component.css']
 })
 export class ExamMasterComponent  implements OnInit{
-
+  questionList: any[] = [];
+  isQuestionList = true;
   ngOnInit(): void {
+    this.getQuestionList();
   }
   examForm: FormGroup;
 
@@ -41,14 +43,47 @@ export class ExamMasterComponent  implements OnInit{
       });
       this.userService.addExamQuestion(formData).subscribe( data => {
         console.log(data);
-       /*  this.snackBar.open('Role created successfully!', 'Close', {
-          duration: 3000,
-        }); */
+        
       },
       error => console.log(error));
     } else {
       console.log('Form is invalid');
     }
+        this.isQuestionList = true;
+        this.getQuestionList();
   }
+
+  getQuestionList() {
+    this.userService.getQuestionList().subscribe(
+      (data: any[]) => {
+        this.questionList = data;
+        console.log('questionList : ',this.questionList);
+      },
+      error => {
+        console.error('Error fetching question list:', error);
+      }
+    );
+  }
+
+  addQuestion(flag : any) {
+    if(flag == 1){
+      this.isQuestionList = false;
+    } else {
+      this.isQuestionList = true;
+    }
+  }
+
+    
+}
+
+export class DataDto {
+  question: string;
+  options: {
+    option1: string;
+    option2: string;
+    option3: string;
+    option4: string;
+  };
+  correctAnswer: string;
 
 }

@@ -49,8 +49,12 @@
       <button type="submit" class="btn btn-primary" [disabled]="examForm.invalid">Submit</button>
     </form>
   </div> -->
-  
-  <div class="container py-5">
+  <div style="text-align: right; margin-bottom: 10px;">
+    <!-- Button placed at the top-right of the table -->
+    <button *ngIf="isQuestionList" (click)="addQuestion(1)">Add Question</button>
+    <button *ngIf="!isQuestionList" (click)="addQuestion(2)">Question List</button>
+  </div>
+  <div class="container py-5" *ngIf="!isQuestionList">
     <div class="card shadow-sm">
       <div class="card-header bg-primary text-white text-center">
         <h2>Create Exam Question</h2>
@@ -133,4 +137,30 @@
       </div>
     </div>
   </div>
+
+  <table style="width: 100%; border-collapse: collapse; border: 1px solid #ccc; font-family: Arial, sans-serif;" *ngIf="isQuestionList">
+    <thead>
+        <tr style="background-color: #f4f4f4;">
+            <th style="padding: 8px 12px; text-align: center; border: 1px solid #ccc;">Q. No.</th>
+            <th style="padding: 8px 12px; text-align: left; border: 1px solid #ccc;">Question</th>
+            <th style="padding: 8px 12px; text-align: left; border: 1px solid #ccc;">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let question of questionList; let i = index" style="background-color: #fff;">
+            <td style="padding: 8px 12px; text-align: center; border: 1px solid #ccc;">{{ i + 1 }}</td>
+            <td style="padding: 8px 12px; border: 1px solid #ccc;">{{ question.qustion }}</td>
+            <td style="padding: 8px 12px; border: 1px solid #ccc;">
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li *ngFor="let option of question.options; let j = index" 
+                        [ngStyle]="{'background-color': option.answerId === 1 ? 'green' : 'transparent', 'color': option.answerId === 1 ? 'white' : 'black'}"
+                        style="padding: 4px 0; margin: 4px 0;">
+                        {{j + 1}}). {{ option.optionText }}
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
   
